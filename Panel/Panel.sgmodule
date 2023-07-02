@@ -1,17 +1,9 @@
 #!name=Panel
-#!desc=🌸☁️流量信息|节假日提醒|️网络信息|流媒体解锁检测|流量统计|刷新DNS
 
 [Panel]
-
-#网络信息
 net-info-panel = script-name=net-info-panel, title="网络信息", content="请刷新", style=info, update-interval=60
-
-#流量统计
 TrafficStatistics = script-name=TrafficStatistics, title="流量统计", content="请刷新", update-interval=1
-
-#刷新DNS
 flushDNS = script-name=flushDNS, update-interval=1
-
 
 [Script]
 net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercontent.com/zkyary/Surge/main/Panel/Script/Net-info-panel.js
