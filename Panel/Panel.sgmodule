@@ -2,11 +2,6 @@
 #!desc=🌸☁️流量信息|节假日提醒|️网络信息|流媒体解锁检测|流量统计|刷新DNS
 
 [Panel]
-#节假日提醒
-timecard = script-name=timecard, update-interval=3600
-
-#机场流量信息
-️🌸☁️ = script-name=️🌸☁️, update-interval=600
 
 #网络信息
 net-info-panel = script-name=net-info-panel, title="网络信息", content="请刷新", style=info, update-interval=60
