@@ -58,8 +58,8 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
       content:
         (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
         (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
-        (v4.primaryRouter && wifi.ssid ? `IPv4-адрес маршрутизатора : ${v4.primaryRouter}\n` : '') +
-        (v6.primaryRouter && wifi.ssid ? `IPv6-адрес маршрутизатора : ${v6.primaryRouter}\n` : '') +
+        //(v4.primaryRouter && wifi.ssid ? `IPv4-адрес маршрутизатора : ${v4.primaryRouter}\n` : '') +
+        //(v6.primaryRouter && wifi.ssid ? `IPv6-адрес маршрутизатора : ${v6.primaryRouter}\n` : '') +
         `IP : ${info.query}\n` +
         `Оператор : ${info.isp}\n` +
         `Местонахождение : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
