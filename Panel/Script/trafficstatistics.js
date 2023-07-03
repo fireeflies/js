@@ -5,7 +5,7 @@ let params = getParams($argument)
 let traffic = (await httpAPI("/v1/traffic"))
 let interface = traffic.interface
 
-/* 获取所有网络界面 */
+/* Получить все сетевые интерфейсы */
 let allNet = [];
 for (var key in interface){
    allNet.push(key)
@@ -28,7 +28,7 @@ if( $persistentStore.read("NETWORK")==null||allNet.includes($persistentStore.rea
 	}
 }
 
-/* 手动执行时切换网络界面 */
+/* Переключаем сетевой интерфейс при выполнении вручную */
 if($trigger == "button"){
 	if(allNet.length>1) index += 1
 	if(index>=allNet.length) index = 0;
@@ -38,14 +38,14 @@ if($trigger == "button"){
 net = allNet[index]
 let network = interface[net]
 
-let outCurrentSpeed = speedTransform(network.outCurrentSpeed) //上传速度
-let outMaxSpeed = speedTransform(network.outMaxSpeed) //最大上传速度
-let download = bytesToSize(network.in) //下载流量
-let upload = bytesToSize(network.out) //上传流量
-let inMaxSpeed = speedTransform(network.inMaxSpeed) //最大下载速度
-let inCurrentSpeed = speedTransform(network.inCurrentSpeed) //下载速度
+let outCurrentSpeed = speedTransform(network.outCurrentSpeed) // Скорость загрузки
+let outMaxSpeed = speedTransform(network.outMaxSpeed) // Максимальная скорость загрузки
+let download = bytesToSize(network.in) // Загрузка трафик
+let upload = bytesToSize(network.out) // Отдача трафика
+let inMaxSpeed = speedTransform(network.inMaxSpeed) // Максимальная скорость загрузки
+let inCurrentSpeed = speedTransform(network.inCurrentSpeed) // Скорость загрузки
 
-/* 判断网络类型 */
+/* Определяем тип сети */
 let netType;
 if(net=="en0") {
 	netType = "WiFi"
@@ -55,10 +55,10 @@ if(net=="en0") {
 
 
   $done({
-      title:"流量统计 | "+netType,
-      content:`流量 ➟ ${upload} | ${download}\n`+
-      `速度 ➟ ${outCurrentSpeed} | ${inCurrentSpeed}\n` +
-		`峰值 ➟ ${outMaxSpeed} | ${inMaxSpeed}`,
+      title:"Статистика трафика | "+netType,
+      content:`Поток ➟ ${upload} | ${download}\n`+
+      `Скорость ➟ ${outCurrentSpeed} | ${inCurrentSpeed}\n` +
+		`Пик ➟ ${outMaxSpeed} | ${inMaxSpeed}`,
 		icon: params.icon,
 		  "icon-color":params.color
     });
