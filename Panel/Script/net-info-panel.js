@@ -61,9 +61,9 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
         //(v4.primaryRouter && wifi.ssid ? `IPv4-адрес маршрутизатора : ${v4.primaryRouter}\n` : '') +
         //(v6.primaryRouter && wifi.ssid ? `IPv6-адрес маршрутизатора : ${v6.primaryRouter}\n` : '') +
         `IP : ${info.query}\n` +
-        `Оператор : ${info.isp}\n` +
         `Местонахождение : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
-        }`,
+        }\n` +
+        `Оператор : ${info.isp}`,
       icon: wifi.ssid ? 'waveform' : 'simcard',
       'icon-color': wifi.ssid ? '#e68ab8' : '#F9BF45',
     });
