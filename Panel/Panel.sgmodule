@@ -5,6 +5,9 @@ timecard = script-name=timecard, update-interval=3600
 net-info-panel = script-name=net-info-panel, title="网络信息", content="请刷新", style=info, update-interval=60
 TrafficStatistics = script-name=TrafficStatistics, title="流量统计", content="请刷新", update-interval=1
 flushDNS = script-name=flushDNS, update-interval=1
+EDC_Surge-Panel = script-name=EDC_Surge-Panel,update-interval=1
+
+
 
 [Script]
 timecard = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fireeflies/js/main/Panel/Script/timecard.js
@@ -14,3 +17,5 @@ net-info-panel = type=generic, timeout=5, script-path=https://raw.githubusercont
 TrafficStatistics = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fireeflies/js/main/Panel/Script/trafficstatistics.js, argument=icon=arrow.up.arrow.down.circle&color=#5d84f8
 
 flushDNS = type=generic, timeout=10, script-path=https://raw.githubusercontent.com/fireeflies/js/main/Panel/Script/flushDNS.js, argument=title=DNS FLush&icon=arrow.triangle.2.circlepath.circle&color=#0089A7&server=true
+
+EDC_Surge-Panel = type=generic,script-path=https://raw.githubusercontent.com/erdongchanyo/Rules/main/Surge/Panels/EDC_Surge-Panel.js,argument=icon=crown.fill&color=#f6c970
