@@ -27,8 +27,8 @@ const carrierNames = loadCarrierNames();
 
 if (!v4.primaryAddress && !v6.primaryAddress) {
   $done({
-    title: '无网络',
-    content: '尚未连接网络\n请检查网络状态后重试',
+    title: 'Нет сети',
+    content: 'Нет подключения к сети\nПроверьте состояние сети и повторите попытку.',
     icon: 'wifi.exclamationmark',
     'icon-color': '#CB1B45',
   });
@@ -39,14 +39,14 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     if (carrierId && radio) {
       cellularInfo = carrierNames[carrierId] ?
         carrierNames[carrierId] + ' | ' + radioGeneration[radio] + ' - ' + radio :
-        '移动数据 | ' + radioGeneration[radio] + ' - ' + radio;
+        'Мобильные данные | ' + radioGeneration[radio] + ' - ' + radio;
     }
   }
   $httpClient.get('http://ip-api.com/json', function (error, response, data) {
     if (error) {
       $done({
-        title: '发生错误',
-        content: '无法获取网络详情\n请检查网络状态后重试',
+        title: 'Произошла ошибка',
+        content: 'Не удалось получить сведения о сети\nПроверьте состояние сети и повторите попытку.',
         icon: 'wifi.exclamationmark',
         'icon-color': '#CB1B45',
       });
@@ -56,13 +56,13 @@ if (!v4.primaryAddress && !v6.primaryAddress) {
     $done({
       title: wifi.ssid ? wifi.ssid : cellularInfo,
       content:
-        (v4.primaryAddress ? `IPv4地址 : ${v4.primaryAddress} \n` : '') +
-        (v6.primaryAddress ? `IPv6地址 : ${v6.primaryAddress}\n` : '') +
-        (v4.primaryRouter && wifi.ssid ? `路由器IPv4地址 : ${v4.primaryRouter}\n` : '') +
-        (v6.primaryRouter && wifi.ssid ? `路由器IPv6地址 : ${v6.primaryRouter}\n` : '') +
-        `魔法IP : ${info.query}\n` +
-        `运营商 : ${info.isp}\n` +
-        `魔法位置 : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
+        (v4.primaryAddress ? `IPv4 : ${v4.primaryAddress} \n` : '') +
+        (v6.primaryAddress ? `IPv6 : ${v6.primaryAddress}\n` : '') +
+        (v4.primaryRouter && wifi.ssid ? `IPv4-адрес маршрутизатора : ${v4.primaryRouter}\n` : '') +
+        (v6.primaryRouter && wifi.ssid ? `IPv6-адрес маршрутизатора : ${v6.primaryRouter}\n` : '') +
+        `IP : ${info.query}\n` +
+        `Оператор : ${info.isp}\n` +
+        `Местонахождение : ${getFlagEmoji(info.countryCode)} | ${info.country} - ${info.city
         }`,
       icon: wifi.ssid ? 'waveform' : 'simcard',
       'icon-color': wifi.ssid ? '#e68ab8' : '#F9BF45',
